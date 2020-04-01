@@ -1,9 +1,9 @@
-<% if book.errors.any? %>
+<% if user.errors.any? %>
 
-  <h2><%= book.errors.count %> error prohibited this book from being saved:</h2>
+  <h2><%= user.errors.count %> error prohibited this book from being saved:</h2>
 
     <ul>
-      	<% book.errors.full_messages.each do |message| %>
+      	<% user.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       	<% end %>
     </ul>

@@ -16,6 +16,11 @@ def edit
 	@user = user.find(params[:id])
 
 end
+def show
+
+  @user = User.find(params[:id])
+
+end
 
 def create
 
@@ -41,24 +46,4 @@ def update
       render("users/edit")
     end
 end
-def login
-
-	@user = User.find_by(email: params[:email], password: params[:password])
-    if @user
-      session[:user_id] = @user.id
-
-      flash[:notice] = "Signed in successfully."
-      redirect_to("/users/index")
-    else
-      @email = params[:email]
-      @password = params[:password]
-      render("top")
-    end
 end
-def destroy
-
-    reset_session
-    flash[:notice] = "Signed out successfully."
-    redirect_to root_path
-end
-
