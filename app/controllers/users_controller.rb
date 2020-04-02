@@ -8,7 +8,7 @@ def index
 end
 def new
 
-	@book = Book.new
+	@user = User.new
 
 end
 def edit
@@ -18,7 +18,7 @@ def edit
 end
 def show
 
-  @user = User.find(params[:id])
+  @users = Book.all
 
 end
 
@@ -28,22 +28,24 @@ def create
 
     if @user.save
       flash[:notice] = "Welcome! You have signed up successfully."
-      redirect_to("/users/#{@user.id}")
+      redirect_to user_path(@user.id)
     else
-      render("users/new")
+      redirect_to user_new_path
     end
 end
 def update
 
     @user = User.find_by(id: params[:id])
-    @user.name = params[:name]
-    @user.email = params[:email]
-
+    @user.update(user_params)
+    
     if @user.save
       flash[:notice] = "You have updated user successfully."
-      redirect_to("/users/#{@user.id}")
+      redirect_to user_path(@user.id)
     else
-      render("users/edit")
+      render :index
     end
+end
+def user_params
+    params.require(:user).permit(:name, :email, :password)
 end
 end

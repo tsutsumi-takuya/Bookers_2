@@ -1,12 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<title>Bookers</title>
+</head>
+<body>
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <nav class='nav navbar-nav navbar-left' >
+      <span>Bookers</span>
+    </nav>
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+          <li><a class="glyphicon glyphicon-home home" href="/users/id"> Home</a></li>
+          <li><a class="glyphicon glyphicon-user users" href="/users"> Users</a></li>
+          <li><a class="glyphicon glyphicon-book books" href="/books"> Books</a></li>
+          <li><a class="glyphicon glyphicon-log-out logout" data-method="delete" href="/users/sign_out"> logout</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
 <h1>User info</h1>
-<%= form_for(@book) do |f| %>
+<%= form_for(@user) do |f| %>
 
 <h3>Name</h3>
 <%= f.text_field :name %>
 <h3>Image</h3>
-<%= f.text_field :profile_image_id %>
+<%= f.attachment_field :profile_image_id %>
 <h3>introduction</h3>
 <%= f.text_area :introduction %>
 <br><%= f.submit 'Update User' %></br>
 <% end %>
 
+<footer>
+  <div class='container'>
+  	<div class='row'>
+    	<div class='col-xs-3 col-xs-offset-9'>
+    		<p>CopyRight Infratop.inc</p>
+    	</div>
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>

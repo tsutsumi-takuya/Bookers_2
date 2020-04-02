@@ -1,20 +1,83 @@
-<h1>Books</h1>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<title>Bookers</title>
+</head>
+<body>
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <nav class='nav navbar-nav navbar-left' >
+      <span>Bookers</span>
+    </nav>
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+          <li><a class="glyphicon glyphicon-home home" href="/users"> Home</a></li>
+          <li><a class="glyphicon glyphicon-user users" href="/users"> Users</a></li>
+          <li><a class="glyphicon glyphicon-book books" href="/books"> Books</a></li>
+          <li><a class="glyphicon glyphicon-log-out logout" data-method="delete" href="/users/sign_out"> logout</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class='body'>
+<div class='container'>
+
+<p id="notice"></p>
+
+<div class='col-xs-3'>
+<h2>User info</h2>
+
+<!-- <h3>Name</h3>
+<%= @user.name %>
+<h3>Image</h3>
+<%= attachment_image_tag @user, :profile_image %>
+<h3>introduction</h3>
+<%= @user.introduction %>
+<br><%= f.submit 'Update User' %></br>
+
+<h2>New book</h2>
+
+	<label for="title">Title</label>
+	<%= f.text_field :title %>
+	<label for="body">Body</label>
+	<%= f.text_area :body %>
+	<br><%= f.submit 'Create Book' %></br>
+ --> 
+<div class="col-xs-9">
+<h2>Books</h2>
 <table class="table table-striped">
 	<thead>
 		<tr>
-			<th></th>
-			<th>title</th>
+			<th> </th>
+			<th>Title</th>
 			<th>Opinion</th>
 			<th colspan="3"></th>
 		</tr>
 	</thead>
 	<tbody>
-		<% @users.each do |book| %>
+		<% @users.each do |f| %>
 		<tr>
-			<tb></tb>
-			<td><%= link_to book.title, books_path(books.id) %></td>
+			<td><%= book.title %></td>
 			<td><%= book.body %></td>
+			<td><%= link_to 'Show', users_path(users.id) %></td>
 		</tr>
 		<% end %>
 	</tbody>
 </table>
+</div>
+</div>
+</div>
+
+<footer>
+  <div class='container'>
+  	<div class='row'>
+    	<div class='col-xs-3 col-xs-offset-9'>
+    		<p>CopyRight Infratop.inc</p>
+    	</div>
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>
